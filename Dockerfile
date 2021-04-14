@@ -1,5 +1,3 @@
-FROM centos:latest
-RUN yum install -y httpd
-ADD . /var/www/html/
-EXPOSE 80
-CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
+FROM node:7-onbuild
+CMD curl -f http://127.0.0.1:8000 || exit 1
+EXPOSE 8000
